@@ -14,21 +14,25 @@ define(['angular'], function (angular) {
 		}])
 
 		.controller('prefsCtrl', ['$scope', '$state', function($scope, $state) {
+			$scope.user = {};
 
-			function checkStorage(){
-				if(localStorage.getItem("lm-prefs")){
+			var checkStorage = function (){
+				if(localStorage.getItem("lm-prefs") != null){
 					$scope.user = angular.fromJson(localStorage.getItem("lm-prefs"));
 				}
 			}
 		  
-			$scope.reset = function(filterQuestion){
-				if(filterQuestion){
-					filterQuestion.$setPristine();
-					filterQuestion.$setUntouched();
-				}
+			$scope.reset = function(){
+				$scope.user = {};
 			}
 
 			$scope.update = function(data){
+				
+				if( Object.keys($scope.user).length === 0 ){ 
+					alert("Please answer at least one question."); 
+					return false; 
+				}
+
 				localStorage.setItem("lm-prefs", angular.toJson(data));
 				$state.go('dashboard');
 			}

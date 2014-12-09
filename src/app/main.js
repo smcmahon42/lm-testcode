@@ -36235,7 +36235,8 @@ define('_services/_apiConfig',['angular'], function (angular) {
 	
 	
 	return angular.module('apiConfig', [])
-		.constant('API_URL', "http://apitest.dev/api.php");
+	.constant('API_URL', "http://orangemco.com/lm-test/api.php");
+		// .constant('API_URL', "http://apitest.dev/api.php");
 });
 define('_services/_logicSvc',['angular'], function (angular) {
 	
@@ -36467,21 +36468,25 @@ define('prefs/prefs_mod',['angular'], function (angular) {
 		}])
 
 		.controller('prefsCtrl', ['$scope', '$state', function($scope, $state) {
+			$scope.user = {};
 
-			function checkStorage(){
-				if(localStorage.getItem("lm-prefs")){
+			var checkStorage = function (){
+				if(localStorage.getItem("lm-prefs") != null){
 					$scope.user = angular.fromJson(localStorage.getItem("lm-prefs"));
 				}
 			}
 		  
-			$scope.reset = function(filterQuestion){
-				if(filterQuestion){
-					filterQuestion.$setPristine();
-					filterQuestion.$setUntouched();
-				}
+			$scope.reset = function(){
+				$scope.user = {};
 			}
 
 			$scope.update = function(data){
+				
+				if( Object.keys($scope.user).length === 0 ){ 
+					alert("Please answer at least one question."); 
+					return false; 
+				}
+
 				localStorage.setItem("lm-prefs", angular.toJson(data));
 				$state.go('dashboard');
 			}
@@ -36532,14 +36537,14 @@ define('app',[
 				var checkStorage = function(){
 					var prefData = null;
 					prefData = localStorage.getItem("lm-prefs");
-
-					if(prefData){
+					
+					if(prefData != null){
 						return true;
 					}else{
 						return false;
 					}
 				}
-
+				
 				$rootScope.$on('$stateChangeStart', function(event, toState, fromState){
 
 					if(toState.name === 'dashboard' && !checkStorage()){

@@ -32,14 +32,14 @@ define([
 				var checkStorage = function(){
 					var prefData = null;
 					prefData = localStorage.getItem("lm-prefs");
-
-					if(prefData){
+					
+					if(prefData != null){
 						return true;
 					}else{
 						return false;
 					}
 				}
-
+				
 				$rootScope.$on('$stateChangeStart', function(event, toState, fromState){
 
 					if(toState.name === 'dashboard' && !checkStorage()){
