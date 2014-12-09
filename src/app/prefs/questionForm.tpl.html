@@ -1,0 +1,62 @@
+<form name="filterQuestion">
+	
+	<h4><i class="fa fa-info-circle"></i> Please answer the following questions so we can better serve your exploring experience.</h4>
+
+	<section>
+		<label class="question" for="challenge">Are you interested in challenges?</label>
+		<article>
+			<input type="radio" ng-model="user.challenge" id="challangeTrue" value="1"> <label for="challangeTrue">Yes</label> 
+		</article>
+		<article>
+			<input type="radio" ng-model="user.challenge" id="challangeFalse" value="0"> <label for="challangeFalse">No</label> 
+		</article>
+	</section>
+
+	<section>
+		<label class="question" for="howto">Do you want to learn about something?</label>
+		<article>
+			<input type="radio" ng-model="user.howto" id="howtoTrue" value="1"> <label for="howtoTrue">Yes</label>
+		</article>
+		<article>
+			<input type="radio" ng-model="user.howto" id="howtoFalse" value="0"> <label for="howtoFalse">No</label> 
+		</article>
+	</section>
+
+	<section>
+		<label class="question" or="brainstorm">Are you looking to collaborate/contribute?</label>
+		<article>
+			<input type="radio" ng-model="user.brainstorm" id="brainstormTrue" value="1" > <label for="brainstormTrue">Yes</label>
+		</article>
+		<article>
+			<input type="radio" ng-model="user.brainstorm" id="brainstormFalse" value="0"> <label for="brainstormFalse">No</label> 
+		</article>
+	</section>
+
+	<section>
+		<label class="question" for="personType">Are you a hobbyist or a professional designer engineer?</label>
+		<article>
+			 <input type="radio" ng-model="user.personType" id="personTypeHobbyist" value="hobbyist" > <label for="personTypeHobbyist">Hobbyist</label> 
+		</article>
+		<article>
+			 <input type="radio" ng-model="user.personType" id="personTypeProfessional" value="professional"> <label for="personTypeProfessional">Professional</label> 
+		</article>
+	</section>
+
+	<section>
+		<label class="question" for="preference">What is your preference of the following?</label>
+		<article>
+			 <input type="radio" ng-model="user.preference" id="preferenceDesign" value="design"> <label for="preferenceDesign">Design over Engineering</label>
+		</article>
+		<article>
+			 <input type="radio" ng-model="user.preference" id="preferenceEngineer" value="engineer"> <label for="preferenceEngineer">Engineering over Design</label>
+		</article>
+		<article>
+			 <input type="radio" ng-model="user.preference" id="preferenceBoth" value="both"> <label for="preferenceBoth">Both Engineering and Design</label>
+		</article>
+	</section>
+	
+	<button  class="formReset" ng-click="reset(filterQuestion)"><i class="fa fa-refresh"></i> Reset</button>
+
+	<button class="formSubmit" ng-click="update(user)"><i class="fa fa-floppy-o"></i> Save</button>
+
+</form>

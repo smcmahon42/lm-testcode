@@ -1,0 +1,26 @@
+<div id="dashboard"></div>
+	<nav>
+		<a ui-sref="preferences"><i class="fa fa-cogs"></i> Personalize Preferences</a>
+	</nav>
+	  
+	<div id="dashboardWrapper">
+
+	<h1>Personalized Content</h1>
+
+		<ul class="category" ng-repeat="output in outputData track by $index">
+			<h3 class="title">{{output.title | titlecase}}</h3>
+			<li ng-repeat="post in output.data">
+				<a ng-href="http://localmotors.com{{post.url}}">
+					<div class="noPhoto" ng-show="post.thumb_medium == null"><p>No Photo</p></div>
+					<img class="largeImg" ng-src="{{post.thumb_medium}}" alt="">
+					<div class="displayContent">
+						<h4 class="title">{{post.title}}</h4>
+						<p class="author"><span>{{post.creator.username}}</span> <img class="avatar" ng-src="{{post.creator.avatar_micro}}" alt=""></p>
+						<p class="description">{{post.description | htmlToPlaintext}}</p>
+					</div>
+				</a>
+			</li>
+		</ul>
+
+	</div>
+</div><!-- dashboard -->

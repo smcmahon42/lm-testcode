@@ -1,0 +1,49 @@
+form[name='filterQuestion'] {
+	width: 100%;
+	background: rgba(255,255,255, 0.17);
+	padding: 10px;
+	@include border-bottom-radius(15px);
+
+	h4 {
+		color: $primary-color;
+		background: rgba(255, 255, 255, 0.50);
+		padding: 10px;
+		margin: 0 0 10px 0;
+		display: inline-block;
+		@include border-radius();
+	}
+
+	label.question {
+		color: #FFF;
+		padding-bottom: 5px;
+	}
+
+	article {
+		color: lighten($primary-color, 30);
+		display: inline;
+		label { 
+			color: lighten($primary-color, 30);
+			margin-right: 15px;
+		}
+	}
+
+	input[type="submit"] {
+		padding: 5px 7px;
+		margin-bottom: 0;
+		
+		font-size: 1.2em;
+		font-weight: 700;
+		color: #FFF;
+		border: none;
+		@include border-radius();
+	}
+
+	.formReset {
+		background-color: #f05722;
+	}
+
+	.formSubmit {
+		background-color: lighten($primary-color, 30);
+	}
+}
+

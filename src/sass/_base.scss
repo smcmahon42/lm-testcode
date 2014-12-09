@@ -1,0 +1,32 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: url('../images/background.jpg');
+	font-family: $font-primary;
+}
+
+#templateWrapper {
+	width: 1024px;
+	margin: auto;
+}
+
+nav {
+	padding: 10px;
+	background: #000;
+	color: #FFF;
+	font-family: $font-primary;
+
+	a {
+		border: 1px solid $primary-color;
+		padding: 5px;
+		margin: 5px 5px 5px 0;
+		display: inline-block;
+		@include border-radius();
+	}
+}
+
+.ng-hide {
+	display: none;
+}
